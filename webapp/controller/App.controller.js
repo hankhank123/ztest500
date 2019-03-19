@@ -5,7 +5,7 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("ztest500.controller.App", {
-
+//
 		onInit: function() {
 			var oViewModel,
 				fnSetAppNotBusy,
