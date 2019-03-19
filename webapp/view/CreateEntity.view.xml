@@ -1,0 +1,48 @@
+<mvc:View controllerName="ztest500.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit ZVTEST200_SRV.ALV': 'New ZVTEST200_SRV.ALV'}">
+				<f:content>
+					<Label text="Pdf" required="true"/>
+					<Input name="Pdf" id="Pdf_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Pdf', type: 'sap.ui.model.odata.type.String' , constraints:{ nullable:false } }"/>
+					<Label text="公司代碼" required="true"/>
+					<Input name="Bukrs" id="Bukrs_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Bukrs', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="文件號碼" required="true"/>
+					<Input name="Belnr" id="Belnr_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Belnr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="會計年度" required="true"/>
+					<Input name="Gjahr" id="Gjahr_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Gjahr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+					<Label text="明細項目" required="true"/>
+					<Input name="Buzei" id="Buzei_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Buzei', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:3, nullable:false } }"/>
+					<Label text="發票號碼" required="true"/>
+					<Input name="Guino" id="Guino_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Guino', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:14, nullable:false } }"/>
+					<Label text="發票格式" required="true"/>
+					<Input name="Guifmt" id="Guifmt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Guifmt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:2, nullable:false } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>
